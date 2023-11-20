@@ -1,0 +1,34 @@
+function classificacaoRankeada(saldoVitorias, saldoDerrotas) {
+    const saldoTotal = saldoVitorias - saldoDerrotas;
+
+    let nivel = "";
+
+    if (saldoTotal < 10) {
+        nivel = "Ferro";
+    } else if (saldoTotal >= 10 && saldoTotal <= 20) {
+        nivel = "Bronze";
+    } else if (saldoTotal >= 21 && saldoTotal <= 50) {
+        nivel = "Prata";
+    } else if (saldoTotal >= 51 && saldoTotal <= 80) {
+        nivel = "Ouro";
+    } else if (saldoTotal >= 81 && saldoTotal <= 90) {
+        nivel = "Diamante";
+    } else if (saldoTotal >= 91 && saldoTotal <= 100) {
+        nivel = "Lendário";
+    } else if (saldoTotal >= 101) {
+        nivel = "Imortal";
+    }
+
+    return {
+        saldoTotal,
+        nivel,
+    };
+}
+
+function exibirResultado(saldoTotal, nivel) {
+    console.log(`O Herói tem de saldo de ${saldoTotal} está no nível de ${nivel}`);
+}
+
+// Utilizando a função
+const resultados = classificacaoRankeada(60, 15);
+exibirResultado(resultados.saldoTotal, resultados.nivel);
